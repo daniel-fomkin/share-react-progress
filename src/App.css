@@ -1,0 +1,287 @@
+/* universal */
+
+:root {
+    --primary-color: #114853;
+    --secondary-color: #FAF8FB;
+    --accent-color: #2CD47D;
+    --gradient: linear-gradient(to right, #114853 0%, #384e51 100%);
+}
+
+/* Eina srifto deklaravimas */
+@font-face {
+    font-family: 'Eina';
+    src: url('./assets/fonts/Eina01-Bold.ttf') format('tff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Eina", sans-serif;
+}
+
+body > div {
+    display: grid;
+    grid-template-columns: 512px 768px;
+    grid-template-rows: 800px;
+    background-color: var(--primary-color);
+}
+
+main {
+    background-color: var(--secondary-color);
+}
+main > div{
+    display: flex;
+}
+
+button {
+    cursor: pointer;
+    transition: 0.1s;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+button:active {
+    transform: scale(1.2);
+}
+
+
+/* Aside container */
+
+aside {
+    background-color: var(--primary-color);
+    grid-area: 1 / 1 / 3 / 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+aside img {
+    width: 50%;
+}
+
+.time {
+    color: var(--secondary-color);
+    font-size: 5rem;
+}
+
+.date {
+    color: var(--secondary-color);
+    font-size: 2rem;
+}
+
+/* language change buttons */
+
+.languages {
+    display: flex;
+    position: absolute;
+    top: 2%;
+    right: 5%;
+    width: 190px;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+    padding: 5px 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.languages img {
+    width: 40px;
+    height: 40px;
+}
+
+.languages hr {
+    width: 2px;
+    height: 2rem;
+    background: var(--gradient);
+    border: none;
+
+}
+
+.lang-btn {
+    background-color: transparent;
+    color: var(--primary-color);
+    font-size: 25px;
+    padding: 4px 8px;
+    border-radius: 10px;
+}
+
+.active {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 25px;
+    padding: 4px 8px;
+    border-radius: 10px;
+}
+
+/* welcome page */
+
+.welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.welcome h1 {
+    font-size: 4.5rem;
+    color: var(--primary-color);
+}
+
+.welcome hr {
+    width: 15%;
+    height: 2px;
+    background: var(--gradient);
+    border: none;
+}
+
+.welcome-btn {
+    background: var(--gradient);
+    border: none;
+    color: var(--secondary-color);
+    margin-top: 50px;
+    font-size: 2.5rem;
+    padding: 10px 50px;
+    border-radius: 20px;
+}
+
+/* registration page */
+.registration {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.other-box{
+    display: none;
+}
+.registration form {
+    width: 550px;
+    padding: 20px;
+}
+
+.registration h1 {
+    font-size: 2.5rem;
+    margin-top: 12%;
+    margin-bottom: 2%;
+    color: var(--primary-color);
+}
+
+form label,
+form>p {
+    color: var(--primary-color);
+    font-size: 20px;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--accent-color);
+    border: 0;
+    box-shadow: var(--accent-color) 0px 0px 8px;
+
+}
+input, option, select{
+    font-size: 1.2rem;  
+}
+
+form > input,
+form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    padding: 8px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    height: 40px;
+    transition: all 100ms;
+}
+
+.form-testi {
+    background: var(--gradient);
+    border: none;
+    color: var(--secondary-color);
+    margin-top: 20px;
+    font-size: 2rem;
+    padding: 7px 25px;
+}
+
+
+.form-atgal {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    margin-top: 20px;
+    font-size: 2rem;
+    padding: 5px 25px;
+    border-radius: 20px;
+}
+
+.form-btn {
+    display: flex;
+    flex-direction: column;
+}
+
+form textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* direction page */
+.directions {
+    flex-direction: column;
+}
+
+/* confrimation page */
+.done {
+    flex-direction: column;
+}
+
+.done img {
+    width: 10%;
+}
+
+.alert{
+    background-color: rgba(255, 0, 0, 0.611);
+    color: rgb(69, 0, 0);
+    font-weight: 800;
+    padding: 10px;
+    transition: all 2900ms;
+    width: fit-content;
+    
+}
+
+.error-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    gap: 10px;
+    top: 15px;
+    width: 550px;
+}
+
+.error-btn{
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+    font-weight: 800;
+    margin-left: 50px;
+}
+
+.Toastify__toast-container--top-center{
+    left: auto;
+}
+.Toastify__toast{
+    border: 1px solid rgb(192, 192, 192);
+}
