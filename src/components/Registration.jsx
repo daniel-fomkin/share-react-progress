@@ -6,11 +6,14 @@ import Select from "react-select";
 
 import emailjs from '@emailjs/browser';
 
+import {motion} from 'framer-motion';
+
 //Componentas puslapiui su forma ir jos funkcijos, su kalbos parametru
 function Registration({lang}){
 
     //EmailJS duomenys P.S NE LIESTI KAS LIES TAM PER GALVA DUOSIU
     const templateID = "template_2y1ibpq";
+    const autoReplyID = "template_nkvcdx9";
     const serviceID = "service_xtbaear";
 
     emailjs.init({
@@ -74,6 +77,10 @@ function Registration({lang}){
       {
         LT:"Įrašyk priežastį",
         EN:"Enter the reason"
+      },
+      {
+        LT: "Jūsų EL. paštas",
+        EN: "Your email"
       }
     ];
 
@@ -100,6 +107,10 @@ function Registration({lang}){
 
     //Mokytoju, administracijos ir t.t duomenys
     const teacherData = [
+      {
+        name: "",
+        email: ""
+      },
       {
         name: "Teacher1",
         email: "projekto-teacher1@outlook.com",
@@ -136,6 +147,8 @@ function Registration({lang}){
       addressee: ""
     });
 
+    const [autoReplyEmail, setAutoReplyEmail] = useState({});
+
 
     //Funkcija parodyt textarea jeigu priezastys pasirinkta kita
     const showOtherReason = element => {
@@ -165,20 +178,44 @@ function Registration({lang}){
     }
 
 
-    //Funkcija laiskui siusti
+
+    //Funkcija laiskus siusti
     function sendEmail(data) {
+
+      //Mokytojui
       emailjs.send(serviceID, templateID, data).then(
         //Jeigu viskas gerai suveikia sitas kodas
         (response) =>{
           console.log("Email buvo sekmingai išsiustas",response.status,response.text);
-         goToDirections();
+         
         },
         //Jeigu klaida sitas
         (error) => {
           console.log("KLAIDA!!!!!", error);
           showErrorAlert("KLAIDA!");
+          navigate("/form");
         },
       );
+
+      //Atejusiam zmogui
+        emailjs.send(serviceID, autoReplyID, autoReplyEmail).then(
+        //Jeigu viskas gerai suveikia sitas kodas
+        (response) =>{
+          console.log("Email buvo sekmingai išsiustas",response.status,response.text);
+         
+        },
+        //Jeigu klaida sitas
+        (error) => {
+          console.log("KLAIDA!!!!!", error);
+          if(error.status == 422){
+            showErrorAlert("Įvesk egzistuojanti pašta");
+            navigate("/form");
+          }
+          
+        },
+      );
+
+      goToDirections();
     }
 
     //Inputu, selectu ir taip toliau validacija
@@ -208,7 +245,11 @@ function Registration({lang}){
 
     return(
         <>
-          <main>
+          <motion.main initial={{ opacity: 0, x: 200 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -200 }}
+                transition={{ duration: 0.7 }}
+          >
             <div className="registration">
                 <ToastContainer autoClose={2000} />
                 <h1>{text[0][lang]}</h1>
@@ -218,8 +259,13 @@ function Registration({lang}){
                 }}>
                     <label htmlFor="userName">{text[1][lang]}</label>
                     <input type="text" name="userName" onChange={e => changeEmailData("firstName", e.target)} />  
+
                     <label htmlFor="userSurname">{text[2][lang]}</label>
                     <input type="text" name="userSurname" onChange={e => changeEmailData("lastName", e.target)} />  
+
+                    <label htmlFor="userEmail">{text[13][lang]}</label>
+                    <input type="text" name="userEmail" onChange={e => setAutoReplyEmail({email: e.target.value})} />
+
                     <label htmlFor="goal">{text[3][lang]}</label>
                     <Select 
                       options={goalOption} 
@@ -239,15 +285,24 @@ function Registration({lang}){
                           ...base,
                           borderStyle: "solid",
                           borderColor: state.isFocused ? "var(--accent-color)" : "#114853",
-                          borderWidth: state.isFocused ? "2px" : "1px",
+                          borderWidth: "2px",
                           boxShadow: state.isFocused
                             ? "0 0 8px var(--accent-color)"
                             : "none",
-                          
+                          height: "40px",
+                          marginTop: "6px",
+                          marginBottom: "12px",
+                          fontSize: "1.2rem",
 
                           "&:hover": {
                             borderColor: "var(--accent-color)",
                           },
+                          "& > *": {
+                            height: "40px",
+                          },
+                          "& > div > div": {
+                            height: "40px"
+                          }
                         }),
 
                         option: (base, state) => ({
@@ -280,16 +335,29 @@ function Registration({lang}){
                         control: (base, state) => ({
                           ...base,
                           borderStyle: "solid",
+                          boxSizing: "border-box !important",
                           borderColor: state.isFocused ? "var(--accent-color)" : "#114853",
-                          borderWidth: state.isFocused ? "2px" : "1px",
+                          borderWidth: "2px",
                           boxShadow: state.isFocused
                             ? "0 0 8px var(--accent-color)"
                             : "none",
-                          
+                          height: "40px",
+                          marginTop: "6px",
+                          marginBottom: "12px",
+                          fontSize: "1.2rem",
 
                           "&:hover": {
                             borderColor: "var(--accent-color)",
                           },
+                          "& > *": {
+                            height: "40px",
+                          },
+                          "& > div > div": {
+                            height: "40px",
+                          },
+                          "& > :last-child(div)":{
+                            height: "auto"
+                          }
                         }),
 
                         option: (base, state) => ({
@@ -306,7 +374,7 @@ function Registration({lang}){
                     </div>
                 </form>
             </div>
-          </main>
+          </motion.main>
         </>
     );
 }

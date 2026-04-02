@@ -10,18 +10,18 @@ function Aside({monthLang}){
 
     //Menesiai lietuviskai ir angliskai
     const months = [
-      monthLang == "LT" ? "Sausis" : "January",
-      monthLang == "LT" ? "Vasaris" : "February",
-      monthLang == "LT" ? "Kovas" : "March",
-      monthLang == "LT" ? "Balandis" : "April",
-      monthLang == "LT" ? "Gegužė" : "May",
-      monthLang == "LT" ? "Birželis" : "June",
-      monthLang == "LT" ? "Liepa" : "July",
-      monthLang == "LT" ? "Rugpjūtis" : "August",
-      monthLang == "LT" ? "Rugsėjis" : "September",
-      monthLang == "LT" ? "Spalis" : "October",
-      monthLang == "LT" ? "Lapkritis" : "November",
-      monthLang == "LT" ? "Gruodis" : "December"
+      monthLang == "LT" ? "Sausio" : "January",
+      monthLang == "LT" ? "Vasario" : "February",
+      monthLang == "LT" ? "Kovo" : "March",
+      monthLang == "LT" ? "Balandžio" : "April",
+      monthLang == "LT" ? "Gegužės" : "May",
+      monthLang == "LT" ? "Birželio" : "June",
+      monthLang == "LT" ? "Liepos" : "July",
+      monthLang == "LT" ? "Rugpjūčio" : "August",
+      monthLang == "LT" ? "Rugsėjo" : "September",
+      monthLang == "LT" ? "Spalio" : "October",
+      monthLang == "LT" ? "Lapkričio" : "November",
+      monthLang == "LT" ? "Gruodžio" : "December"
     ];
 
     //Funkcija gauti dabartini laika
@@ -43,7 +43,6 @@ function Aside({monthLang}){
       let monthNumber = new Date().getMonth();
 
       let monthDay = new Date().getDate();
-      monthDay = monthDay < 10 ? "0" + monthDay : monthDay;
     
       let monthValue = `${months[monthNumber]} ${monthDay}`;
       

@@ -6,6 +6,8 @@ import LanguageButtons from "./components/LanguageButtons";
 import Aside from "./components/Aside";
 
 import {Routes, Route} from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+
 
 import './App.css';
 import { useState } from "react";
@@ -19,16 +21,18 @@ function App() {
         setLang(data);       
   }
   return (
-    <>
+    <div className="container">
       <Aside monthLang={lang} />
-      <Routes>
-        <Route path="/" element={<Welcome lang={lang}/>} />
-        <Route path="/form" element={<Registration lang={lang} />} />
-        <Route path="/directions" element={<Directions lang={lang} />} />
-        <Route path="/confrimation" element={<Confrimation lang={lang}/>} />
-      </Routes>
+      <AnimatePresence mode="wait">
+        <Routes>
+          <Route path="/" element={<Welcome lang={lang}/>} />
+          <Route path="/form" element={<Registration lang={lang} />} />
+          <Route path="/directions" element={<Directions lang={lang} />} />
+          <Route path="/confrimation" element={<Confrimation lang={lang}/>} />
+        </Routes>
+      </AnimatePresence>
       <LanguageButtons get={getLang}></LanguageButtons>
-    </>
+    </div>
   );
 }
 
