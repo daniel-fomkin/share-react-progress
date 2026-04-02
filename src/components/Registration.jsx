@@ -149,15 +149,18 @@ function Registration({lang}){
 
     const [autoReplyEmail, setAutoReplyEmail] = useState({});
 
+    // Other box state
+    const [show, setShow] = useState("none");
+
 
     //Funkcija parodyt textarea jeigu priezastys pasirinkta kita
     const showOtherReason = element => {
         if(element.value == "Kita"){
-            document.querySelector("#otherBox").style.display = "block";
+            setShow("block");
+            
         }
         else{
-            document.querySelector("#otherBox").style.display = "none";
-            document.querySelector("#otherBox").querySelector("textarea").value = "";
+            setShow("none");
         }
     }
 
@@ -313,7 +316,7 @@ function Registration({lang}){
                       }}
                       
                     />
-                    <div id="otherBox" className="other-box">
+                    <div id="otherBox" className="other-box" style={{display: show}}>
                         <label htmlFor="otherReason">{text[12][lang]}</label>
                         <textarea name="otherReason" onChange={e => changeEmailData(e.target.value ? "goal" : "", e.target)}></textarea>
                     </div>  
