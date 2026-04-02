@@ -62,7 +62,7 @@ function Aside({monthLang}){
       return () => {
         clearInterval(tickID);
       };
-    }, []);
+    }, [monthLang]);
 
 
     return(
