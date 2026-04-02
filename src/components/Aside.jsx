@@ -52,14 +52,17 @@ function Aside({monthLang}){
 
     //Funkcija kad kas 50ms žiuretu nauja laika ir data 
     useEffect(() => {
-      const time = setInterval(timeNow, 50);
-      const date = setInterval(dateNow, 50);
+      function tick(){
+        timeNow();
+        dateNow();
+      }
+      tick();
 
+      const tickID = setInterval(tick, 1000)
       return () => {
-        clearInterval(time);
-        clearInterval(date);
+        clearInterval(tickID);
       };
-    });
+    }, []);
 
 
     return(

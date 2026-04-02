@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import checkImage from '../assets/check.svg';
 import upArrowImage from '../assets/up.svg';
 
-import {motion} from 'framer-motion';
+import PageAnimation from './PageAnimation';
 
 //Componentas puslapiui su kryptimi, su kalbos parametru
 function Directions({lang}){
@@ -32,27 +32,20 @@ function Directions({lang}){
   ];
 
     return(
-        <>
-          <motion.main initial={{ opacity: 0, x: 200 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -200 }}
-                transition={{ duration: 0.7 }}
-          >
-            <div className="directions">
-                <img src={checkImage} alt='check' />
-                <h1>{text[0][lang]}</h1>
-
-                <div className="directions_content">
-                    <img src={upArrowImage} alt="up arrow" />
-                    <div className="directions_text">
-                        <p>{text[2][lang]}</p>
-                        <p>{text[3][lang]}</p>
-                    </div>
-                </div>
-                <button type="button" className='directions-btn' onClick={goToConfrimation}>{text[1][lang]}</button>
-            </div>
-          </motion.main>
-        </>
+        <PageAnimation>
+          <div className="directions">
+              <img src={checkImage} alt='check' />
+              <h1>{text[0][lang]}</h1>
+              <div className="directions_content">
+                  <img src={upArrowImage} alt="up arrow" />
+                  <div className="directions_text">
+                      <p>{text[2][lang]}</p>
+                      <p>{text[3][lang]}</p>
+                  </div>
+              </div>
+              <button type="button" className='directions-btn' onClick={goToConfrimation}>{text[1][lang]}</button>
+          </div>
+        </PageAnimation>
     );
 }
 

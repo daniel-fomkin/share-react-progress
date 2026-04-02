@@ -5,13 +5,9 @@ import { ToastContainer, toast } from "react-toastify";
 import Select from "react-select";
 
 import emailjs from '@emailjs/browser';
+import PageAnimation from "./PageAnimation";
 
-import {motion} from 'framer-motion';
-
-//Componentas puslapiui su forma ir jos funkcijos, su kalbos parametru
-function Registration({lang}){
-
-    //EmailJS duomenys P.S NE LIESTI KAS LIES TAM PER GALVA DUOSIU
+//EmailJS duomenys P.S NE LIESTI KAS LIES TAM PER GALVA DUOSIU
     const templateID = "template_2y1ibpq";
     const autoReplyID = "template_nkvcdx9";
     const serviceID = "service_xtbaear";
@@ -20,6 +16,8 @@ function Registration({lang}){
         publicKey: "mlsFH5LSh9e3YU7Om",
     });
 
+//Componentas puslapiui su forma ir jos funkcijos, su kalbos parametru
+function Registration({lang}){
 
     const navigate = useNavigate();
     
@@ -121,12 +119,8 @@ function Registration({lang}){
       },
     ];
 
-    const optionData = [{value: "", label: ""}];
+    const optionData = teacherData.map(el => {return {value: el.name, label: el.name};});
 
-    for(const key in teacherData){
-      optionData.push({value: teacherData[key].name, label: teacherData[key].name})
-    }
-    
     const goalOption = [
       {value: "", label:""},
       {value:"Dėl mokslų", label:text[7][lang]},
@@ -247,138 +241,134 @@ function Registration({lang}){
     
 
     return(
-        <>
-          <motion.main initial={{ opacity: 0, x: 200 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -200 }}
-                transition={{ duration: 0.7 }}
-          >
-            <div className="registration">
-                <ToastContainer autoClose={2000} />
-                <h1>{text[0][lang]}</h1>
-                <form id="form" action="#" onSubmit={e => {
-                    e.preventDefault();
-                    validation();
-                }}>
-                    <label htmlFor="userName">{text[1][lang]}</label>
-                    <input type="text" name="userName" onChange={e => changeEmailData("firstName", e.target)} />  
+        <PageAnimation>
+          <div className="registration">
+              <ToastContainer autoClose={2000} />
+              <h1>{text[0][lang]}</h1>
+              <form id="form" action="#" onSubmit={e => {
+                  e.preventDefault();
+                  validation();
+              }}>
+                  <label htmlFor="userName">{text[1][lang]}</label>
+                  <input type="text" name="userName" id= "userName" onChange={e => changeEmailData("firstName", e.target)} />  
 
-                    <label htmlFor="userSurname">{text[2][lang]}</label>
-                    <input type="text" name="userSurname" onChange={e => changeEmailData("lastName", e.target)} />  
+                  <label htmlFor="userSurname">{text[2][lang]}</label>
+                  <input type="text" name="userSurname" id="userSurname" onChange={e => changeEmailData("lastName", e.target)} />  
 
-                    <label htmlFor="userEmail">{text[13][lang]}</label>
-                    <input type="text" name="userEmail" onChange={e => setAutoReplyEmail({email: e.target.value})} />
+                  <label htmlFor="userEmail">{text[13][lang]}</label>
+                  <input type="text" name="userEmail" id = "userEmail" onChange={e => setAutoReplyEmail({email: e.target.value})} />
 
-                    <label htmlFor="goal">{text[3][lang]}</label>
-                    <Select 
-                      options={goalOption} 
-                      defaultValue={optionData[0]}
-                      isSearchable={false}
-                      onChange={e => {showOtherReason(e); changeEmailData("goal", e)}}
-                      theme={(theme) => ({
-                        ...theme,
-                        borderRadius: 5,
-                        colors: {
-                          ...theme.colors,
-                          primary: "#2CD47D"
-                        }
-                      })}
-                      styles={{
-                        control: (base, state) => ({
-                          ...base,
-                          borderStyle: "solid",
-                          borderColor: state.isFocused ? "var(--accent-color)" : "#114853",
-                          borderWidth: "2px",
-                          boxShadow: state.isFocused
-                            ? "0 0 8px var(--accent-color)"
-                            : "none",
+                  <label htmlFor="goal">{text[3][lang]}</label>
+                  <Select 
+                    options={goalOption} 
+                    defaultValue={optionData[0]}
+                    isSearchable={false}
+                    id="goal"
+                    onChange={e => {showOtherReason(e); changeEmailData("goal", e)}}
+                    theme={(theme) => ({
+                      ...theme,
+                      borderRadius: 5,
+                      colors: {
+                        ...theme.colors,
+                        primary: "#2CD47D"
+                      }
+                    })}
+                    styles={{
+                      control: (base, state) => ({
+                        ...base,
+                        borderStyle: "solid",
+                        borderColor: state.isFocused ? "var(--accent-color)" : "#114853",
+                        borderWidth: "2px",
+                        boxShadow: state.isFocused
+                          ? "0 0 8px var(--accent-color)"
+                          : "none",
+                        height: "40px",
+                        marginTop: "6px",
+                        marginBottom: "12px",
+                        fontSize: "1.2rem",
+
+                        "&:hover": {
+                          borderColor: "var(--accent-color)",
+                        },
+                        "& > *": {
                           height: "40px",
-                          marginTop: "6px",
-                          marginBottom: "12px",
-                          fontSize: "1.2rem",
-
-                          "&:hover": {
-                            borderColor: "var(--accent-color)",
-                          },
-                          "& > *": {
-                            height: "40px",
-                          },
-                          "& > div > div": {
-                            height: "40px"
-                          }
-                        }),
-
-                        option: (base, state) => ({
-                          ...base,
-                          backgroundColor:  state.isFocused ? "#83e7b3" : "white",
-                          color: state.isFocused ? "#264837" : "black"
-                        })
-                      }}
-                      
-                    />
-                    <div id="otherBox" className="other-box" style={{display: show}}>
-                        <label htmlFor="otherReason">{text[12][lang]}</label>
-                        <textarea name="otherReason" onChange={e => changeEmailData(e.target.value ? "goal" : "", e.target)}></textarea>
-                    </div>  
-                    <label htmlFor="teacherName">{text[4][lang]}</label>
-                    <Select 
-                      options={optionData} 
-                      defaultValue={optionData[0]}
-                      isSearchable={false}
-                      onChange={e => {changeEmailData("addressee", e); changeEmailData("email", e)}} 
-                      theme={(theme) => ({
-                        ...theme,
-                        borderRadius: 5,
-                        colors: {
-                          ...theme.colors,
-                          primary: "#2CD47D"
+                        },
+                        "& > div > div": {
+                          height: "40px"
                         }
-                      })}
-                      styles={{
-                        control: (base, state) => ({
-                          ...base,
-                          borderStyle: "solid",
-                          boxSizing: "border-box !important",
-                          borderColor: state.isFocused ? "var(--accent-color)" : "#114853",
-                          borderWidth: "2px",
-                          boxShadow: state.isFocused
-                            ? "0 0 8px var(--accent-color)"
-                            : "none",
+                      }),
+
+                      option: (base, state) => ({
+                        ...base,
+                        backgroundColor:  state.isFocused ? "#83e7b3" : "white",
+                        color: state.isFocused ? "#264837" : "black"
+                      })
+                    }}
+                    
+                  />
+                  <div id="otherBox" className="other-box" style={{display: show}}>
+                      <label htmlFor="otherReason">{text[12][lang]}</label>
+                      <textarea name="otherReason" id="otherReason" onChange={e => changeEmailData(e.target.value ? "goal" : "", e.target)}></textarea>
+                  </div>  
+                  <label htmlFor="teacherName">{text[4][lang]}</label>
+                  <Select 
+                    options={optionData} 
+                    defaultValue={optionData[0]}
+                    isSearchable={false}
+                    id="teacherName"
+                    onChange={e => {changeEmailData("addressee", e); changeEmailData("email", e)}} 
+                    theme={(theme) => ({
+                      ...theme,
+                      borderRadius: 5,
+                      colors: {
+                        ...theme.colors,
+                        primary: "#2CD47D"
+                      }
+                    })}
+                    styles={{
+                      control: (base, state) => ({
+                        ...base,
+                        borderStyle: "solid",
+                        boxSizing: "border-box !important",
+                        borderColor: state.isFocused ? "var(--accent-color)" : "#114853",
+                        borderWidth: "2px",
+                        boxShadow: state.isFocused
+                          ? "0 0 8px var(--accent-color)"
+                          : "none",
+                        height: "40px",
+                        marginTop: "6px",
+                        marginBottom: "12px",
+                        fontSize: "1.2rem",
+
+                        "&:hover": {
+                          borderColor: "var(--accent-color)",
+                        },
+                        "& > *": {
                           height: "40px",
-                          marginTop: "6px",
-                          marginBottom: "12px",
-                          fontSize: "1.2rem",
+                        },
+                        "& > div > div": {
+                          height: "40px",
+                        },
+                        "& > :last-child(div)":{
+                          height: "auto"
+                        }
+                      }),
 
-                          "&:hover": {
-                            borderColor: "var(--accent-color)",
-                          },
-                          "& > *": {
-                            height: "40px",
-                          },
-                          "& > div > div": {
-                            height: "40px",
-                          },
-                          "& > :last-child(div)":{
-                            height: "auto"
-                          }
-                        }),
-
-                        option: (base, state) => ({
-                          ...base,
-                          backgroundColor:  state.isFocused ? "#83e7b3" : "white",
-                          color: state.isFocused ? "#264837" : "black"
-                        })
-                      }}
-                      
-                    />
-                    <div className="form-btn">
-                        <button className="form-testi">{text[5][lang]}</button>
-                        <button type="reset" className="form-atgal" onClick={goToWelcome}>{text[6][lang]}</button>
-                    </div>
-                </form>
-            </div>
-          </motion.main>
-        </>
+                      option: (base, state) => ({
+                        ...base,
+                        backgroundColor:  state.isFocused ? "#83e7b3" : "white",
+                        color: state.isFocused ? "#264837" : "black"
+                      })
+                    }}
+                    
+                  />
+                  <div className="form-btn">
+                      <button className="form-testi">{text[5][lang]}</button>
+                      <button type="reset" className="form-atgal" onClick={goToWelcome}>{text[6][lang]}</button>
+                  </div>
+              </form>
+          </div>
+        </PageAnimation>
     );
 }
 

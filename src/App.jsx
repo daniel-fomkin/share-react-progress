@@ -1,7 +1,7 @@
 import Welcome from "./components/Welcome";
 import Registration from "./components/Registration";
 import Directions from "./components/Directions";
-import Confrimation from "./components/Confrimation";
+import Confrimation from "./components/Confirmation";
 import LanguageButtons from "./components/LanguageButtons";
 import Aside from "./components/Aside";
 

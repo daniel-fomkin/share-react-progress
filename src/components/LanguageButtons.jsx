@@ -7,7 +7,7 @@ function LanguageButtons({get}){
 
     function changeLang(language){
         setLang(language);
-        get(language)
+        get(language);
     }
 
     return(
