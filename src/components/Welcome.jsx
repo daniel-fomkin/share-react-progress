@@ -1,24 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import PageAnimation from "./PageAnimation";
+import translate from "../utlils/translate";
 
 //Componentas pirmam puslapiui su kalbos parametru
 function Welcome({lang}){
 
     const navigate = useNavigate();
-
-    //Componento lietuviskas ir angliskas tekstas
-    const text = [
-        {
-          LT: "Sveiki atvykę",
-          EN: "Welcome",
-
-        },
-        {
-          LT: "Pradėti registraciją",
-          EN: "Start registration",
-        
-        }
-    ];
 
     //Navigacija i kita puslapi
     const goToForm = () => navigate("/form");
@@ -26,9 +13,9 @@ function Welcome({lang}){
     return(
         <PageAnimation>
             <div className="welcome">
-                <h1>{text[0][lang]}</h1>
+                <h1>{translate("welcome", "welcomeText", lang)}</h1>
                 <hr />
-                <button type="button" className="welcome-btn" onClick={goToForm}>{text[1][lang]}</button>
+                <button type="button" className="welcome-btn" onClick={goToForm}>{translate("welcome", "welcomeText", lang)}</button>
             </div>
         </PageAnimation>
     );  

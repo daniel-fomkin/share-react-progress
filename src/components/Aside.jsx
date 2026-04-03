@@ -1,5 +1,6 @@
 import logo from '../assets/Techin.webp';
 import { useEffect, useState } from 'react';
+import translate from '../utlils/translate';
 
 //Componentas laikiu ir logo su kalbos parametru
 function Aside({monthLang}){
@@ -9,20 +10,7 @@ function Aside({monthLang}){
     const [month, setMonth] = useState("Sausis 1");
 
     //Menesiai lietuviskai ir angliskai
-    const months = [
-      monthLang == "LT" ? "Sausio" : "January",
-      monthLang == "LT" ? "Vasario" : "February",
-      monthLang == "LT" ? "Kovo" : "March",
-      monthLang == "LT" ? "Balandžio" : "April",
-      monthLang == "LT" ? "Gegužės" : "May",
-      monthLang == "LT" ? "Birželio" : "June",
-      monthLang == "LT" ? "Liepos" : "July",
-      monthLang == "LT" ? "Rugpjūčio" : "August",
-      monthLang == "LT" ? "Rugsėjo" : "September",
-      monthLang == "LT" ? "Spalio" : "October",
-      monthLang == "LT" ? "Lapkričio" : "November",
-      monthLang == "LT" ? "Gruodžio" : "December"
-    ];
+
 
     //Funkcija gauti dabartini laika
     function timeNow() {
@@ -43,8 +31,8 @@ function Aside({monthLang}){
       let monthNumber = new Date().getMonth();
 
       let monthDay = new Date().getDate();
-    
-      let monthValue = `${months[monthNumber]} ${monthDay}`;
+      
+      let monthValue = `${translate("aside", "months", monthLang)[monthNumber]} ${monthDay}`;
       
     
       setMonth(monthValue);
