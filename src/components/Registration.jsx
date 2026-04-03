@@ -251,7 +251,7 @@ function Registration({lang}){
                       <label htmlFor="otherReason">{translate("registration", "reason", lang)}</label>
                       <textarea name="otherReason" id="otherReason" onChange={e => changeEmailData(e.target.value ? "goal" : "", e.target)}></textarea>
                   </div>  
-                  <label htmlFor="teacherName">{translate("registration", "goalText", lang)}</label>
+                  <label htmlFor="teacherName">{translate("registration", "adreseeText", lang)}</label>
                   <Select 
                     options={optionData} 
                     defaultValue={optionData[0]}
