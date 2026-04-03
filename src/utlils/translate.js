@@ -4,7 +4,7 @@ const translate = (page, word, lang) => {
              months: {
                 LT: ["Sausio", "Vasario", "Kovo", "Balandžio", "Gegužės", "Birželio","Liepos", "Rugpjūčio", "Rugsėjo", "Spalio", "Lapkričio", "Gruodžio"],
                 EN: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    }
+            }
         },
         welcome: {
             welcomeText: {
