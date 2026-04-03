@@ -75,6 +75,24 @@ const translate = (page, word, lang) => {
             LT: "Jūsų EL. paštas",
             EN: "Your email"
           } 
+        },
+        directions: {
+          header: {
+            LT:"Jūsų kelionė prasideda čia",
+            EN:"Your journey begins here."
+          },
+          finishButton: {
+            LT:"Baigti",
+            EN:"Finish"
+          },
+          directionText: {
+            LT: "Eikite į antrą aukštą",
+            EN: "Go to the second floor."
+          },
+          cabinet: {
+            LT: "Jūsų laukia 205 kabinete",
+            EN: "You are expected in room 205."
+          }
         }
     }
 
