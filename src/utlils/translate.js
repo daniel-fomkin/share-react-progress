@@ -40,7 +40,7 @@ const translate = (page, word, lang) => {
             EN: "Who did you come to visit",
           },
           continueButton: {
-            LT: "Testi",
+            LT: "Tęsti",
             EN: "Continue",
           },
           backButton: {
