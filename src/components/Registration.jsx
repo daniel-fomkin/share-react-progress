@@ -7,6 +7,8 @@ import Select from "react-select";
 import emailjs from '@emailjs/browser';
 import PageAnimation from "./PageAnimation";
 
+import translate from "../utlils/translate";
+
 //EmailJS duomenys P.S NE LIESTI KAS LIES TAM PER GALVA DUOSIU
     const templateID = "template_2y1ibpq";
     const autoReplyID = "template_nkvcdx9";
@@ -20,67 +22,6 @@ import PageAnimation from "./PageAnimation";
 function Registration({lang}){
 
     const navigate = useNavigate();
-    
-    //Componento lietuviskas ir angliskas tekstas
-    const text = [
-      {
-        LT:"Lankytojo registracija",
-        EN:"Visitor Registration"
-      },
-      {
-        LT: "Vardas",
-        EN: "Name",
-
-      },
-      {
-        LT: "Pavardė",
-        EN: "Last name",
-      },
-      {
-        LT: "Vizito tikslas",
-        EN: "The purpose of visit",
-      },
-      {
-        LT: "Vizitas pas",
-        EN: "Who did you come to visit",
-      },
-      {
-        LT: "Testi",
-        EN: "Continue",
-      },
-      {
-        LT: "Atgal",
-        EN: "Back",
-      },
-      {
-        LT:"Dėl mokslų",
-        EN: "For studies"
-      },
-      {
-        LT:"Dėl dokumentų",
-        EN:"For documents"
-      },
-      {
-        LT:"Konsultacijai",
-        EN:"For consultation"
-      },
-      {
-        LT:"Suderintas vizitas",
-        EN:"Planned visit"
-      },
-      {
-        LT:"Kita",
-        EN:"Other"
-      },
-      {
-        LT:"Įrašyk priežastį",
-        EN:"Enter the reason"
-      },
-      {
-        LT: "Jūsų EL. paštas",
-        EN: "Your email"
-      }
-    ];
 
     //Componento alertu tekstas lietuviskai
     const alertTexts = {
@@ -244,21 +185,21 @@ function Registration({lang}){
         <PageAnimation>
           <div className="registration">
               <ToastContainer autoClose={2000} />
-              <h1>{text[0][lang]}</h1>
+              <h1>{translate("registration", "header", lang)}</h1>
               <form id="form" action="#" onSubmit={e => {
                   e.preventDefault();
                   validation();
               }}>
-                  <label htmlFor="userName">{text[1][lang]}</label>
+                  <label htmlFor="userName">{translate("registration", "nameText", lang)}</label>
                   <input type="text" name="userName" id= "userName" onChange={e => changeEmailData("firstName", e.target)} />  
 
-                  <label htmlFor="userSurname">{text[2][lang]}</label>
+                  <label htmlFor="userSurname">{translate("registration", "lastNameText", lang)}</label>
                   <input type="text" name="userSurname" id="userSurname" onChange={e => changeEmailData("lastName", e.target)} />  
 
-                  <label htmlFor="userEmail">{text[13][lang]}</label>
+                  <label htmlFor="userEmail">{translate("registration", "email", lang)}</label>
                   <input type="text" name="userEmail" id = "userEmail" onChange={e => setAutoReplyEmail({email: e.target.value})} />
 
-                  <label htmlFor="goal">{text[3][lang]}</label>
+                  <label htmlFor="goal">{translate("registration", "goalText", lang)}</label>
                   <Select 
                     options={goalOption} 
                     defaultValue={optionData[0]}
@@ -307,10 +248,10 @@ function Registration({lang}){
                     
                   />
                   <div id="otherBox" className="other-box" style={{display: show}}>
-                      <label htmlFor="otherReason">{text[12][lang]}</label>
+                      <label htmlFor="otherReason">{translate("registration", "reason", lang)}</label>
                       <textarea name="otherReason" id="otherReason" onChange={e => changeEmailData(e.target.value ? "goal" : "", e.target)}></textarea>
                   </div>  
-                  <label htmlFor="teacherName">{text[4][lang]}</label>
+                  <label htmlFor="teacherName">{translate("registration", "goalText", lang)}</label>
                   <Select 
                     options={optionData} 
                     defaultValue={optionData[0]}
@@ -364,7 +305,7 @@ function Registration({lang}){
                   />
                   <div className="form-btn">
                       <button className="form-testi">{text[5][lang]}</button>
-                      <button type="reset" className="form-atgal" onClick={goToWelcome}>{text[6][lang]}</button>
+                      <button type="reset" className="form-atgal" onClick={goToWelcome}>{translate("registration", "continueButton", lang)}</button>
                   </div>
               </form>
           </div>
