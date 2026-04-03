@@ -64,11 +64,11 @@ function Registration({lang}){
 
     const goalOption = [
       {value: "", label:""},
-      {value:"Dėl mokslų", label:text[7][lang]},
-      {value:"Dėl dokumentų", label:text[8][lang]},
-      {value:"Konsultacijai", label:text[9][lang]},
-      {value:"Suderintas vizitas", label:text[10][lang]},
-      {value:"Kita", label:text[11][lang]},
+      {value:"Dėl mokslų", label:translate("registration", "schoolGoal")},
+      {value:"Dėl dokumentų", label:translate("registration", "documentGoal")},
+      {value:"Konsultacijai", label:translate("registration", "consultationGoal")},
+      {value:"Suderintas vizitas", label:translate("registration", "plannedGoal")},
+      {value:"Kita", label:translate("registration", "otherGoal")},
     ];
     
   
@@ -304,8 +304,8 @@ function Registration({lang}){
                     
                   />
                   <div className="form-btn">
-                      <button className="form-testi">{text[5][lang]}</button>
-                      <button type="reset" className="form-atgal" onClick={goToWelcome}>{translate("registration", "continueButton", lang)}</button>
+                      <button className="form-testi">{translate("registration", "continueButton", lang)}</button>
+                      <button type="reset" className="form-atgal" onClick={goToWelcome}>{translate("registration", "backButton", lang)}</button>
                   </div>
               </form>
           </div>
