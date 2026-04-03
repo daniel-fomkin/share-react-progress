@@ -64,11 +64,11 @@ function Registration({lang}){
 
     const goalOption = [
       {value: "", label:""},
-      {value:"Dėl mokslų", label:translate("registration", "schoolGoal")},
-      {value:"Dėl dokumentų", label:translate("registration", "documentGoal")},
-      {value:"Konsultacijai", label:translate("registration", "consultationGoal")},
-      {value:"Suderintas vizitas", label:translate("registration", "plannedGoal")},
-      {value:"Kita", label:translate("registration", "otherGoal")},
+      {value:"Dėl mokslų", label:translate("registration", "schoolGoal", lang)},
+      {value:"Dėl dokumentų", label:translate("registration", "documentGoal", lang)},
+      {value:"Konsultacijai", label:translate("registration", "consultationGoal", lang)},
+      {value:"Suderintas vizitas", label:translate("registration", "plannedGoal", lang)},
+      {value:"Kita", label:translate("registration", "otherGoal", lang)},
     ];
     
   
