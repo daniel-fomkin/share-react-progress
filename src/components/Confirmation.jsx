@@ -5,6 +5,8 @@ import mailImg from '../assets/mail.svg';
 
 import PageAnimation from "./PageAnimation";
 
+import translate from '../utlils/translate';
+
 //Componentas paskutiniam puslapiui su kalbos parametru
 function Confrimation({lang}){
 
@@ -12,30 +14,14 @@ function Confrimation({lang}){
 
     const goToWelcome = () => navigate("/");
 
-    //Componento lietuviskas ir angliskas tekstas
-    const text = [
-      {
-        LT:"Baigti",
-        EN:"Finish"
-      },
-      {
-        LT:"Registracija sėkminga!",
-        EN:"Registration sucessfull!"
-      },
-      {
-        LT:"Darbuotojas informuotas apie Jūsų atvykimą",
-        EN:"The worker is noticed about your visit"
-      }
-    ];
-
     return(
         <PageAnimation>
           <div className="done">
               <img src={checkImg} alt="Confirmation" />
-              <h1>{text[1][lang]}</h1>
-              <p>{text[2][lang]}</p>
+              <h1>{translate("confirmation", "confirm", lang)}</h1>
+              <p>{translate("confirmation", "information", lang)}</p>
               <img src={mailImg} alt="Mail Icon" />
-              <button type="button" className="done-btn" onClick={goToWelcome}>{text[0][lang]}</button>
+              <button type="button" className="done-btn" onClick={goToWelcome}>{translate("confirmation", "finishButton", lang)}</button>
           </div>
         </PageAnimation>
     );

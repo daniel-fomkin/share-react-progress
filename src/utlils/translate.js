@@ -24,7 +24,7 @@ const translate = (page, word, lang) => {
           },
           nameText: {
             LT: "Vardas",
-            EN: "Name",
+            EN: "First name",
           
           },
           lastNameText: {
@@ -33,11 +33,11 @@ const translate = (page, word, lang) => {
           },
           goalText: {
             LT: "Vizito tikslas",
-            EN: "The purpose of visit",
+            EN: "Purpose of visit",
           },
           adreseeText: {
             LT: "Vizitas pas",
-            EN: "Who did you come to visit",
+            EN: "Person to visit",
           },
           continueButton: {
             LT: "Tęsti",
@@ -61,7 +61,7 @@ const translate = (page, word, lang) => {
           },
           plannedGoal: {
             LT:"Suderintas vizitas",
-            EN:"Planned visit"
+            EN:"Scheduled visit"
           },
           otherGoal: {
             LT:"Kita",
@@ -93,6 +93,58 @@ const translate = (page, word, lang) => {
             LT: "Jūsų laukia 205 kabinete",
             EN: "You are expected in room 205."
           }
+        },
+        confirmation: {
+            finishButton: {
+              LT:"Baigti",
+              EN:"Finish"
+            },
+            confirm: {
+              LT:"Registracija sėkminga!",
+              EN:"Registration sucessful!"
+            },
+            information: {
+              LT:"Darbuotojas informuotas apie Jūsų atvykimą",
+              EN:"The staff member has been informed about your arrival"
+            }
+        },
+        alerts:{
+            firstName: {
+                LT: "Įvesk vardą",
+                EN: ""
+            },
+            lastName: {
+                LT: "Įvesk pavardę",
+                EN: ""
+            },
+            goal: {
+                LT: "Pasirink vizito tikslą",
+                EN: ""
+            },
+            addressee: {
+                LT: "Pasirink žmogų",
+                EN: ""
+            },
+            firstNameNum: {
+                LT: "Varde negali būti skaičių",
+                EN: ""
+            },  
+            lastNameNum: {
+                LT: "Pavardėje negali būti skaičių",
+                EN: ""
+            },
+            goalOther: {
+                LT: "Įrašyk savo priežastį",
+                EN: ""
+            },
+            email: {
+                LT: "Įvesk savo pašta",
+                EN: ""
+            },
+            emailNotExist: {
+                LT: "Įvesk egzistuojanti pašta",
+                EN: ""
+            }
         }
     }
 

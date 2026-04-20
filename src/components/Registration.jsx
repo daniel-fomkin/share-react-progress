@@ -23,19 +23,8 @@ function Registration({lang}){
 
     const navigate = useNavigate();
 
-    //Componento alertu tekstas lietuviskai
-    const alertTexts = {
-      firstName: "Įvesk vardą",
-      lastName: "Įvesk pavardę",
-      goal: "Pasirink vizito tikslą",
-      addressee: "Pasirink žmogų",
-      firstNameNum: "Varde negali būti skaičių",
-      lastNameNum: "Pavardėje negali būti skaičių",
-      goalOther: "Įrašyk savo priežastį"
-    };
-
     const showErrorAlert= text => toast.error(text, {
-      position: 'top-center'
+      position: 'top-center',
     });
 
     //Navigacija i praeita puslapi
@@ -140,15 +129,14 @@ function Registration({lang}){
         //Jeigu viskas gerai suveikia sitas kodas
         (response) =>{
           console.log("Email buvo sekmingai išsiustas",response.status,response.text);
-         
         },
         //Jeigu klaida sitas
         (error) => {
           console.log("KLAIDA!!!!!", error);
-          if(error.status == 422){
-            showErrorAlert("Įvesk egzistuojanti pašta");
-            navigate("/form");
-          }
+          console.log(autoReplyEmail);
+          
+          showErrorAlert("KLAIDA!");
+          navigate("/form");
           
         },
       );
@@ -160,22 +148,29 @@ function Registration({lang}){
     const validation = () => {
       for(let key in data){
         //Validacija kad duomenys ne butu tušti
-        if(!data[key] && key!="email"){
-          showErrorAlert(alertTexts[key]);
+        if(!data[key] && key!="email"){          
+          showErrorAlert(translate("alerts", key, lang));
           return;
         }
         //Validacija kad vardas ir pavarde butu be skaiciu
         if((key == "firstName" || key == "lastName") && /\d/.test(data[key])){
-          showErrorAlert(alertTexts[key+"Num"]);
+          showErrorAlert(translate("alerts", key+"Num", lang));
           return;
         }
         //Validacija kad jeigu pasirinkta kita priezastys textarea ne butu tuscias
         if(data[key] == "Kita"){
-          showErrorAlert(alertTexts[key+"Other"]);
+          showErrorAlert(translate("alerts", key+"Other", lang));
           return;
         }
       }
-        
+      if(!autoReplyEmail.email){
+        showErrorAlert(translate("alerts", "email", lang));
+        return;
+      }
+      if(autoReplyEmail.email.indexOf("@") == -1 && autoReplyEmail.email.indexOf(".") == -1){
+        showErrorAlert(translate("alerts", "emailNotExist", lang));
+        return;
+      }
       sendEmail(data);          
     }
     
