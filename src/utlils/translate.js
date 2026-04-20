@@ -111,39 +111,39 @@ const translate = (page, word, lang) => {
         alerts:{
             firstName: {
                 LT: "Įvesk vardą",
-                EN: ""
+                EN: "Enter first name"
             },
             lastName: {
                 LT: "Įvesk pavardę",
-                EN: ""
+                EN: "Enter last name"
             },
             goal: {
                 LT: "Pasirink vizito tikslą",
-                EN: ""
+                EN: "Select visit purpose"
             },
             addressee: {
                 LT: "Pasirink žmogų",
-                EN: ""
+                EN: "Select person"
             },
             firstNameNum: {
                 LT: "Varde negali būti skaičių",
-                EN: ""
+                EN: "First name cannot contain numbers"
             },  
             lastNameNum: {
                 LT: "Pavardėje negali būti skaičių",
-                EN: ""
+                EN: "Last name cannot contain numbers"
             },
             goalOther: {
                 LT: "Įrašyk savo priežastį",
-                EN: ""
+                EN: "Enter your reason"
             },
             email: {
                 LT: "Įvesk savo pašta",
-                EN: ""
+                EN: "Enter your email"
             },
             emailNotExist: {
                 LT: "Įvesk egzistuojanti pašta",
-                EN: ""
+                EN: "Enter a valid email address"
             }
         }
     }

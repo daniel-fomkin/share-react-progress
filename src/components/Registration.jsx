@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useState} from "react";
+import { useEffect, useState} from "react";
+
+import autoReset from '../utlils/auto-reset';
 
 import { ToastContainer, toast } from "react-toastify";
 import Select from "react-select";
@@ -29,9 +31,12 @@ function Registration({lang}){
 
     //Navigacija i praeita puslapi
     const goToWelcome = () => navigate("/");
-
+    
     //Navigacija i kita puslapi
-    const goToDirections = () => navigate("/directions");
+    const goToDirections = () => {
+      navigate("/directions");
+      clearTimeout(timeOutId);
+    };
 
     //Mokytoju, administracijos ir t.t duomenys
     const teacherData = [
@@ -76,6 +81,20 @@ function Registration({lang}){
     // Other box state
     const [show, setShow] = useState("none");
 
+    const [ resetStatus, setResetStatus ] = useState(false);
+    let timeOutId;
+    useEffect(() => {
+      if(resetStatus){
+        goToWelcome()
+      }
+      else{
+        function timeOut(){
+          let timeOut = autoReset(setResetStatus);
+          return timeOut;
+        }
+        timeOutId = timeOut();
+      }
+    }, [resetStatus, goToWelcome]);
 
     //Funkcija parodyt textarea jeigu priezastys pasirinkta kita
     const showOtherReason = element => {
@@ -103,8 +122,6 @@ function Registration({lang}){
         }));
       }
     }
-
-
 
     //Funkcija laiskus siusti
     function sendEmail(data) {
@@ -137,7 +154,7 @@ function Registration({lang}){
           
           showErrorAlert("KLAIDA!");
           navigate("/form");
-          
+        
         },
       );
 
@@ -184,6 +201,9 @@ function Registration({lang}){
               <form id="form" action="#" onSubmit={e => {
                   e.preventDefault();
                   validation();
+              }} onChange={() => {
+                clearTimeout(timeOutId);
+                setResetStatus(false);
               }}>
                   <label htmlFor="userName">{translate("registration", "nameText", lang)}</label>
                   <input type="text" name="userName" id= "userName" onChange={e => changeEmailData("firstName", e.target)} />  

@@ -7,12 +7,30 @@ import PageAnimation from "./PageAnimation";
 
 import translate from '../utlils/translate';
 
+import { useState, useEffect } from "react";
+import autoReset from "../utlils/auto-reset";
+
+
 //Componentas paskutiniam puslapiui su kalbos parametru
 function Confrimation({lang}){
 
     const navigate = useNavigate();
 
     const goToWelcome = () => navigate("/");
+
+    const [ resetStatus, setResetStatus ] = useState(false);
+    useEffect(() => {
+      if(resetStatus){
+        goToWelcome()
+      }
+      else{
+        function timeOut(){
+          let timeOut = autoReset(setResetStatus);
+          return timeOut;
+        }
+        timeOut();
+      }
+    }, [resetStatus, goToWelcome]);
 
     return(
         <PageAnimation>

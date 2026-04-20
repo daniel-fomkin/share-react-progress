@@ -3,8 +3,10 @@ import checkImage from '../assets/check.svg';
 import upArrowImage from '../assets/up.svg';
 
 import PageAnimation from './PageAnimation';
+import { useEffect, useState } from 'react';
 
 import translate from '../utlils/translate';
+import autoReset from '../utlils/auto-reset';
 
 //Componentas puslapiui su kryptimi, su kalbos parametru
 function Directions({lang}){
@@ -12,6 +14,22 @@ function Directions({lang}){
     const navigate = useNavigate();
 
     const goToConfrimation = () => navigate("/confrimation");
+    const goToWelcome = () => navigate("/");
+
+    const [ resetStatus, setResetStatus ] = useState(false);
+    useEffect(() => {
+      if(resetStatus){
+        goToWelcome()
+      }
+      else{
+        function timeOut(){
+          let timeOut = autoReset(setResetStatus);
+          return timeOut;
+        }
+        timeOut();
+      }
+    }, [resetStatus, goToWelcome]);
+
 
     return(
         <PageAnimation>
