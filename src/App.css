@@ -246,6 +246,15 @@ select>option * {
     flex-direction: column;
 }
 
+.Toastify__toast-container--top-center{
+    left: auto;
+}
+
+.Toastify__toast-theme--light, .Toastify__toast-theme--colored.Toastify__toast--default{
+    opacity: 75%;
+}
+
+
 
 
 /* direction page */
@@ -330,10 +339,3 @@ select>option * {
     height: 120px;
 }
 
-.Toastify__toast-container--top-center{
-    left: auto;
-}
-
-.Toastify__toast-theme--light, .Toastify__toast-theme--colored.Toastify__toast--default{
-    opacity: 75%;
-}

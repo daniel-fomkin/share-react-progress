@@ -233,18 +233,17 @@ function Registration({lang}){
                       control: (base, state) => ({
                         ...base,
                         borderStyle: "solid",
-                        borderColor: state.isFocused ? "var(--accent-color)" : "#114853",
+                        borderColor: state.isFocused ? "#30b74e" : "#114853",
                         borderWidth: "2px",
                         boxShadow: state.isFocused
                           ? "0 0 8px var(--accent-color)"
                           : "none",
-                        height: "40px",
                         marginTop: "6px",
                         marginBottom: "12px",
                         fontSize: "1.2rem",
 
                         "&:hover": {
-                          borderColor: "var(--accent-color)",
+                          borderColor: "#30b74e",
                         },
                         "& > *": {
                           height: "40px",
@@ -256,8 +255,8 @@ function Registration({lang}){
 
                       option: (base, state) => ({
                         ...base,
-                        backgroundColor:  state.isFocused ? "#83e7b3" : "white",
-                        color: state.isFocused ? "#264837" : "black"
+                        backgroundColor:  state.isFocused ? "#d0d1d0" : "white",
+                        color: state.isFocused ? "#1f1f1f" : "black"
                       })
                     }}
                     
@@ -286,18 +285,17 @@ function Registration({lang}){
                         ...base,
                         borderStyle: "solid",
                         boxSizing: "border-box !important",
-                        borderColor: state.isFocused ? "var(--accent-color)" : "#114853",
+                        borderColor: state.isFocused ? "#30b74e" : "#114853",
                         borderWidth: "2px",
                         boxShadow: state.isFocused
-                          ? "0 0 8px var(--accent-color)"
+                          ? "0 0 8px #30b74e"
                           : "none",
-                        height: "40px",
                         marginTop: "6px",
                         marginBottom: "12px",
                         fontSize: "1.2rem",
 
                         "&:hover": {
-                          borderColor: "var(--accent-color)",
+                          borderColor: "#30b74e",
                         },
                         "& > *": {
                           height: "40px",
@@ -312,8 +310,8 @@ function Registration({lang}){
 
                       option: (base, state) => ({
                         ...base,
-                        backgroundColor:  state.isFocused ? "#83e7b3" : "white",
-                        color: state.isFocused ? "#264837" : "black"
+                        backgroundColor:  state.isFocused ? "#d0d1d0" : "white",
+                        color: state.isFocused ? "#1f1f1f" : "black"
                       })
                     }}
                     
