@@ -72,8 +72,8 @@ const translate = (page, word, lang) => {
             EN:"Enter the reason:"
           },
           email: {
-            LT: "Jūsų el. paštas",
-            EN: "Your email"
+            LT: "Jūsų el. paštas:",
+            EN: "Your email:"
           } 
         },
         directions: {
