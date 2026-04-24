@@ -22,13 +22,16 @@
 
 body {
     font-family: "Eina", sans-serif;
+    height: 1200px;
+    width: 1920px;
 }
 
 .container {
     display: grid;
-    grid-template-columns: 4fr 6fr;
-    grid-template-rows: 100vh;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 1200px;
     background-color: var(--primary-color);
+    position: relative;
 }
 
 main {
@@ -58,7 +61,7 @@ aside {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 40px;
+    padding: 2rem;
 }
 
 aside img {
@@ -67,12 +70,12 @@ aside img {
 
 .time {
     color: var(--secondary-color);
-    font-size: 5rem;
+    font-size: 8rem;
 }
 
 .date {
     color: var(--secondary-color);
-    font-size: 2rem;
+    font-size: 4rem;
 }
 
 /* language change buttons */
@@ -81,8 +84,9 @@ aside img {
     display: flex;
     position: absolute;
     top: 2%;
-    right: 5%;
-    width: 190px;
+    right: 2%;
+    width: 15rem;
+    z-index: 10;
     justify-content: space-between;
     align-items: center;
     border: 1px solid var(--primary-color);
@@ -92,13 +96,13 @@ aside img {
 }
 
 .languages img {
-    width: 40px;
-    height: 40px;
+    width: 3.5rem;
+    height: 3.5rem;
 }
 
 .languages hr {
-    width: 2px;
-    height: 2rem;
+    width: 4px;
+    height: 2.5rem;
     background: var(--gradient);
     border: none;
 
@@ -107,16 +111,16 @@ aside img {
 .lang-btn {
     background-color: transparent;
     color: var(--primary-color);
-    font-size: 25px;
-    padding: 4px 8px;
+    font-size: 2.5rem;
+    padding: 6px 10px;
     border-radius: 10px;
 }
 
 .active {
     background-color: var(--primary-color);
     color: var(--secondary-color);
-    font-size: 25px;
-    padding: 4px 8px;
+    font-size: 2.5rem;
+    padding: 6px 10px;
     border-radius: 10px;
 }
 
@@ -131,13 +135,13 @@ aside img {
 }
 
 .welcome h1 {
-    font-size: 4.5rem;
+    font-size: 6.5rem;
     color: var(--primary-color);
 }
 
 .welcome hr {
-    width: 15%;
-    height: 2px;
+    width: 25%;
+    height: 5px;
     background: var(--gradient);
     border: none;
 }
@@ -147,7 +151,7 @@ aside img {
     border: none;
     color: var(--secondary-color);
     margin-top: 50px;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     padding: 10px 50px;
     border-radius: 20px;
 }
@@ -160,9 +164,10 @@ aside img {
 }
 
 .registration form {
-    width: 550px;
+    width: 45rem;
     padding: 20px;
 }
+
 .other-box{
     display: none;
 }
@@ -170,8 +175,9 @@ aside img {
     resize: none;
     overflow: auto;
 }
+
 .registration h1 {
-    font-size: 2.5rem;
+    font-size: 4.1rem;
     margin-top: 10%;
     color: var(--primary-color);
 }
@@ -179,7 +185,7 @@ aside img {
 form label,
 form>p {
     color: var(--primary-color);
-    font-size: 20px;
+    font-size: 2.5rem;
 }
 
 
@@ -196,7 +202,7 @@ input,
 option,
 select,
 textarea {
-    font-size: 1.2rem;
+    font-size: 2.2rem;
 }
 
 form input,
@@ -209,9 +215,10 @@ form textarea {
     padding: 8px;
     border: 2px solid var(--primary-color);
     border-radius: 5px;
-    height: 40px;
+    height: 3.7rem;
     transition: all 100ms;
 }
+
 form input:hover,
 form select:hover,
 form textarea:hover{
@@ -223,12 +230,8 @@ form textarea:hover{
     border: none;
     color: var(--secondary-color);
     margin-top: 20px;
-    font-size: 2rem;
+    font-size: 3rem;
     padding: 7px 25px;
-}
-
-select>option * {
-    border: 5px solid green;
 }
 
 .form-atgal {
@@ -236,7 +239,7 @@ select>option * {
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
     margin-top: 20px;
-    font-size: 2rem;
+    font-size: 3rem;
     padding: 5px 25px;
     border-radius: 20px;
 }
@@ -266,12 +269,12 @@ select>option * {
 }
 
 .directions h1 {
-    font-size: 2.5rem;
+    font-size: 4.5rem;
     color: var(--primary-color);
 }
 
 .directions>img {
-    width: 100px;
+    width: 10rem;
 }
 
 .directions_content {
@@ -282,7 +285,7 @@ select>option * {
     align-items: center;
     flex-direction: row;
     justify-content: center;
-    font-size: 25px;
+    font-size: 2.5rem;
 }
 
 .directions_content img {
@@ -294,8 +297,8 @@ select>option * {
     border: none;
     color: var(--secondary-color);
     margin-top: 50px;
-    font-size: 2rem;
-    padding: 10px 50px;
+    font-size: 3.5rem;
+    padding: 20px 60px;
     border-radius: 20px;
 }
 
@@ -309,19 +312,19 @@ select>option * {
     padding-bottom: 100px;
 }
 
-.done>img {
-    height: 200px;
+.done img {
+    height: 10rem;
 }
 
 .done h1 {
-    font-size: 3rem;
+    font-size: 4.5rem;
     color: var(--primary-color);
     margin-bottom: 20px;
 }
 
 .done p {
     color: var(--primary-color);
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 10px;
 }
 
@@ -330,7 +333,7 @@ select>option * {
     border: none;
     color: var(--secondary-color);
     margin-bottom: 20px;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     padding: 10px 100px;
     border-radius: 20px;
 }

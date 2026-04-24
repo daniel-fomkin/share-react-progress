@@ -240,22 +240,23 @@ function Registration({lang}){
                           : "none",
                         marginTop: "6px",
                         marginBottom: "12px",
-                        fontSize: "1.2rem",
+                        fontSize: "2.2rem",
 
                         "&:hover": {
                           borderColor: "#30b74e",
                         },
                         "& > *": {
-                          height: "40px",
+                          height: "3.7rem",
                         },
                         "& > div > div": {
-                          height: "40px"
+                          height: "3.7rem"
                         }
                       }),
 
                       option: (base, state) => ({
                         ...base,
                         backgroundColor:  state.isFocused ? "#d0d1d0" : "white",
+                        fontSize: "2rem",
                         color: state.isFocused ? "#1f1f1f" : "black"
                       })
                     }}
@@ -292,16 +293,16 @@ function Registration({lang}){
                           : "none",
                         marginTop: "6px",
                         marginBottom: "12px",
-                        fontSize: "1.2rem",
+                        fontSize: "2.2rem",
 
                         "&:hover": {
                           borderColor: "#30b74e",
                         },
                         "& > *": {
-                          height: "40px",
+                          height: "3.7rem",
                         },
                         "& > div > div": {
-                          height: "40px",
+                          height: "3.7rem",
                         },
                         "& > :last-child(div)":{
                           height: "auto"
@@ -311,7 +312,8 @@ function Registration({lang}){
                       option: (base, state) => ({
                         ...base,
                         backgroundColor:  state.isFocused ? "#d0d1d0" : "white",
-                        color: state.isFocused ? "#1f1f1f" : "black"
+                        color: state.isFocused ? "#1f1f1f" : "black",
+                        fontSize: "2rem"
                       })
                     }}
                     
