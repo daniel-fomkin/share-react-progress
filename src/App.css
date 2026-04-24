@@ -312,10 +312,6 @@ form textarea:hover{
     padding-bottom: 100px;
 }
 
-.done img {
-    height: 10rem;
-}
-
 .done h1 {
     font-size: 4.5rem;
     color: var(--primary-color);
@@ -339,6 +335,6 @@ form textarea:hover{
 }
 
 .done img {
-    height: 120px;
+    height: 10rem;
 }
 
