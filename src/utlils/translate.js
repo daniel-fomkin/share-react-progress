@@ -23,21 +23,21 @@ const translate = (page, word, lang) => {
             EN:"Visitor Registration"
           },
           nameText: {
-            LT: "Vardas",
-            EN: "First name",
+            LT: "Vardas:",
+            EN: "First name:",
           
           },
           lastNameText: {
-            LT: "Pavardė",
-            EN: "Last name",
+            LT: "Pavardė:",
+            EN: "Last name:",
           },
           goalText: {
-            LT: "Vizito tikslas",
-            EN: "Purpose of visit",
+            LT: "Vizito tikslas:",
+            EN: "Purpose of visit:",
           },
           adreseeText: {
-            LT: "Vizitas pas",
-            EN: "Person to visit",
+            LT: "Vizitas pas:",
+            EN: "Person to visit:",
           },
           continueButton: {
             LT: "Tęsti",
@@ -68,11 +68,11 @@ const translate = (page, word, lang) => {
             EN:"Other"
           },
           reason: {
-            LT:"Įrašyk priežastį",
-            EN:"Enter the reason"
+            LT:"Įrašykite priežastį:",
+            EN:"Enter the reason:"
           },
           email: {
-            LT: "Jūsų EL. paštas",
+            LT: "Jūsų el. paštas",
             EN: "Your email"
           } 
         },
