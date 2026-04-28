@@ -15,7 +15,7 @@ function Welcome({lang}){
             <div className="welcome">
                 <h1>{translate("welcome", "welcomeText", lang)}</h1>
                 <hr />
-                <button type="button" className="welcome-btn" onClick={goToForm}>{translate("welcome", "welcomeText", lang)}</button>
+                <button type="button" className="welcome-btn" onClick={goToForm}>{translate("welcome", "startButton", lang)}</button>
             </div>
         </PageAnimation>
     );  
