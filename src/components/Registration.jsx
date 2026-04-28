@@ -27,6 +27,7 @@ function Registration({lang}){
 
     const showErrorAlert= text => toast.error(text, {
       position: 'top-center',
+      className: "error-alert"
     });
 
     //Navigacija i praeita puslapi

@@ -257,6 +257,12 @@ form textarea:hover{
     opacity: 75%;
 }
 
+.error-alert{
+    width: 19vw;
+    height: 7vh;
+    font-size: 1.7rem;
+}
+
 
 
 
