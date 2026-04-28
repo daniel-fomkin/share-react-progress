@@ -255,10 +255,10 @@ form textarea:hover{
 
 .Toastify__toast-theme--light, .Toastify__toast-theme--colored.Toastify__toast--default{
     opacity: 75%;
+    font-size: 3rem;
 }
 
 .error-alert{
-    font-size: 3rem;
 
 }
 
