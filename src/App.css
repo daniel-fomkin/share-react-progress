@@ -262,6 +262,10 @@ form textarea:hover{
     width: 25vw;
     height: 10vh;
     font-size: 34px;
+    gap: 10px;
+}
+.error-alert svg{
+    transform: scale(1.8);
 }
 
 
