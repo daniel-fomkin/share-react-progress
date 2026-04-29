@@ -260,7 +260,7 @@ form textarea:hover{
 .error-alert {
     box-sizing: border-box;
     width: 27vw;
-    height: 10.5vh;
+    height: fit-content;
     font-size: 34px;
     gap: 10px;
     padding: 35px;
