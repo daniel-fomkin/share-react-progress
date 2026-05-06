@@ -1,3 +1,5 @@
+'use strict';
+
 const translate = (page, word, lang) => {
     const wordDictinary = {
         aside: {

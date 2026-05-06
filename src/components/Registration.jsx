@@ -10,6 +10,7 @@ import emailjs from '@emailjs/browser';
 import PageAnimation from "./PageAnimation";
 
 import translate from "../utlils/translate";
+import teacherData from '../utlils/data';
 
 //EmailJS duomenys P.S NE LIESTI KAS LIES TAM PER GALVA DUOSIU
     const templateID = "template_2y1ibpq";
@@ -21,7 +22,7 @@ import translate from "../utlils/translate";
     });
 
 //Componentas puslapiui su forma ir jos funkcijos, su kalbos parametru
-function Registration({lang}){
+function Registration({lang, getDataFunction }){
 
     const navigate = useNavigate();
 
@@ -38,22 +39,7 @@ function Registration({lang}){
       navigate("/directions");
       clearTimeout(timeOutId);
     };
-
-    //Mokytoju, administracijos ir t.t duomenys
-    const teacherData = [
-      {
-        name: "",
-        email: ""
-      },
-      {
-        name: "Teacher1",
-        email: "projekto-teacher1@outlook.com",
-      },
-      {
-        name: "Teacher2",
-        email: "projekto-teacher2@outlook.com",
-      },
-    ];
+    
 
     const optionData = teacherData.map(el => {return {value: el.name, label: el.name};});
 
@@ -126,7 +112,7 @@ function Registration({lang}){
 
     //Funkcija laiskus siusti
     function sendEmail(data) {
-
+      data.userEmail = autoReplyEmail.email;
       //Mokytojui
       emailjs.send(serviceID, templateID, data).then(
         //Jeigu viskas gerai suveikia sitas kodas
@@ -151,7 +137,6 @@ function Registration({lang}){
         //Jeigu klaida sitas
         (error) => {
           console.log("KLAIDA!!!!!", error);
-          console.log(autoReplyEmail);
           
           showErrorAlert("KLAIDA!");
           navigate("/form");
@@ -189,7 +174,13 @@ function Registration({lang}){
         showErrorAlert(translate("alerts", "emailNotExist", lang));
         return;
       }
-      sendEmail(data);          
+      getDataFunction(data);
+      if(data.addressee == "Teacher1"){
+        sendEmail(data);          
+      }
+      else{
+        goToDirections();
+      }
     }
     
     

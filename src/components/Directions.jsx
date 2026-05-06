@@ -7,9 +7,10 @@ import { useEffect, useState } from 'react';
 
 import translate from '../utlils/translate';
 import autoReset from '../utlils/auto-reset';
+import teacherData from '../utlils/data';
 
 //Componentas puslapiui su kryptimi, su kalbos parametru
-function Directions({lang}){
+function Directions({lang, data}){
 
     const navigate = useNavigate();
 
@@ -17,6 +18,10 @@ function Directions({lang}){
     const goToWelcome = () => navigate("/");
 
     const [ resetStatus, setResetStatus ] = useState(false);
+    const teacher = teacherData.find(el => el.name == data.addressee);
+  
+    
+
     useEffect(() => {
       if(resetStatus){
         goToWelcome()
@@ -31,6 +36,7 @@ function Directions({lang}){
     }, [resetStatus, goToWelcome]);
 
 
+
     return(
         <PageAnimation>
           <div className="directions">
@@ -39,8 +45,9 @@ function Directions({lang}){
               <div className="directions_content">
                   <img src={upArrowImage} alt="up arrow" />
                   <div className="directions_text">
-                      <p>{translate("directions", "directionText", lang)}</p>
-                      <p>{translate("directions", "cabinet", lang)}</p>
+                      <p>Kabinetas:  {teacher.cabinet}</p>
+                      <p>Aukštas: {teacher.floor}</p>
+                      <p>Kaip nueiti: {teacher.direction}</p>
                   </div>
               </div>
               <button type="button" className='directions-btn' onClick={goToConfrimation}>{translate("directions", "finishButton", lang)}</button>

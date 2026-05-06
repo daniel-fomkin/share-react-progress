@@ -12,7 +12,7 @@ import autoReset from "../utlils/auto-reset";
 
 
 //Componentas paskutiniam puslapiui su kalbos parametru
-function Confrimation({lang}){
+function Confrimation({lang, data}){
 
     const navigate = useNavigate();
 
@@ -37,6 +37,7 @@ function Confrimation({lang}){
           <div className="done">
               <img src={checkImg} alt="Confirmation" />
               <h1>{translate("confirmation", "confirm", lang)}</h1>
+              <p>Jūs užsiregistravote pas {data.addressee}</p>
               <p>{translate("confirmation", "information", lang)}</p>
               <img src={mailImg} alt="Mail Icon" />
               <button type="button" className="done-btn" onClick={goToWelcome}>{translate("confirmation", "finishButton", lang)}</button>
