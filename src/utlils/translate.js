@@ -87,14 +87,27 @@ const translate = (page, word, lang) => {
             LT:"Baigti",
             EN:"Finish"
           },
-          directionText: {
-            LT: "Eikite į antrą aukštą",
-            EN: "Go to the second floor."
+          // directionText: {
+          //   LT: "Eikite į antrą aukštą",
+          //   EN: "Go to the second floor."
+          // },
+          // cabinet: {
+          //   LT: "Jūsų laukia 205 kabinete",
+          //   EN: "You are expected in room 205."
+          // }
+          cabinet:  {
+            LT: "Kabinetas:",
+            EN: "Room:"
           },
-          cabinet: {
-            LT: "Jūsų laukia 205 kabinete",
-            EN: "You are expected in room 205."
+          floor: {
+            LT: "Aukštas:", 
+            EN: "Floor:"
+          }, 
+          directionText: {
+            LT: "Kaip nueiti:",
+            EN: "How to get there:"
           }
+
         },
         confirmation: {
             finishButton: {
