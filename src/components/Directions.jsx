@@ -47,7 +47,7 @@ function Directions({lang, data}){
                   <div className="directions_text">
                       <p>{translate("directions", "cabinet", lang)} {teacher.cabinet}</p>
                       <p>{translate("directions", "floor", lang)} {teacher.floor}</p>
-                      <p>{translate("directions", "how to get there", lang)} {teacher.direction}</p>
+                      <p>{translate("directions", "directionText", lang)} {teacher.direction}</p>
                   </div>
               </div>
               <button type="button" className='directions-btn' onClick={goToConfrimation}>{translate("directions", "finishButton", lang)}</button>

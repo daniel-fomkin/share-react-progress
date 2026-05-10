@@ -95,7 +95,7 @@ const translate = (page, word, lang) => {
           //   LT: "Jūsų laukia 205 kabinete",
           //   EN: "You are expected in room 205."
           // }
-          cabinet:  {
+          cabinet: {
             LT: "Kabinetas:",
             EN: "Room:"
           },
