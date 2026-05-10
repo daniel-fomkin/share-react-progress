@@ -45,9 +45,9 @@ function Directions({lang, data}){
               <div className="directions_content">
                   <img src={upArrowImage} alt="up arrow" />
                   <div className="directions_text">
-                      <p>Kabinetas:  {teacher.cabinet}</p>
-                      <p>Aukštas: {teacher.floor}</p>
-                      <p>Kaip nueiti: {teacher.direction}</p>
+                      <p>{translate("directions", "cabinet", lang)} {teacher.cabinet}</p>
+                      <p>{translate("directions", "floor", lang)} {teacher.floor}</p>
+                      <p>{translate("directions", "directionText", lang)} {lang == "LT"? teacher.direction : teacher.directionENG}</p>
                   </div>
               </div>
               <button type="button" className='directions-btn' onClick={goToConfrimation}>{translate("directions", "finishButton", lang)}</button>

@@ -87,14 +87,27 @@ const translate = (page, word, lang) => {
             LT:"Baigti",
             EN:"Finish"
           },
-          directionText: {
-            LT: "Eikite į antrą aukštą",
-            EN: "Go to the second floor."
-          },
+          // directionText: {
+          //   LT: "Eikite į antrą aukštą",
+          //   EN: "Go to the second floor."
+          // },
+          // cabinet: {
+          //   LT: "Jūsų laukia 205 kabinete",
+          //   EN: "You are expected in room 205."
+          // }
           cabinet: {
-            LT: "Jūsų laukia 205 kabinete",
-            EN: "You are expected in room 205."
+            LT: "Kabinetas:",
+            EN: "Room:"
+          },
+          floor: {
+            LT: "Aukštas:", 
+            EN: "Floor:"
+          }, 
+          directionText: {
+            LT: "Kaip nueiti:",
+            EN: "How to get there:"
           }
+
         },
         confirmation: {
             finishButton: {
@@ -104,6 +117,10 @@ const translate = (page, word, lang) => {
             confirm: {
               LT:"Registracija sėkminga!",
               EN:"Registration sucessful!"
+            },
+            designatedTeacher: {
+              LT:"Jūs užsiregistravote pas",
+              EN:"You are registered for a visit with"
             },
             information: {
               LT:"Darbuotojas informuotas apie Jūsų atvykimą",
