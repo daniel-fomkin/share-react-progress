@@ -69,7 +69,7 @@ const teacherData = [
       directionENG: "Go down the corridor to the stairs on the left → go up to the second floor → go straight → turn left → room 201."
     },
     {
-      name: "Profesijos mokytoja (Biuro administravimo mokymo programa) Virginija Puodžiukienė",
+      name: "Profesijos mokytoja (Biuro administratoriaus mokymo programa) Virginija Puodžiukienė",
       email: "virginija.puodziukiene@techin.lt",
       cabinet: 202,
       floor: 2,
