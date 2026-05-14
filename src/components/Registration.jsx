@@ -175,7 +175,7 @@ function Registration({lang, getDataFunction }){
         return;
       }
       getDataFunction(data);
-      if(data.addressee == "Teacher1"){
+      if(data.addressee == "Teacher1" || data.adresee == "Profesijos mokytoja (Biuro administratoriaus mokymo programa) Virginija Puodžiukienė"){
         sendEmail(data);          
       }
       else{
