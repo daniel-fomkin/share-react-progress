@@ -178,9 +178,9 @@ function Registration({lang, getDataFunction }){
       // if(data.addressee == "Teacher1" || data.adresee == "Profesijos mokytoja (Biuro administratoriaus mokymo programa) Virginija Puodžiukienė"){
         sendEmail(data);          
       // }
-      else{
-        goToDirections();
-      }
+      // else{
+      //   goToDirections();
+      // }
     }
     
     
