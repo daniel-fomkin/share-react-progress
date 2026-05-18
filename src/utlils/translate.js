@@ -119,7 +119,7 @@ const translate = (page, word, lang) => {
               EN:"Registration sucessful!"
             },
             designatedTeacher: {
-              LT:"Jūs užsiregistravote pas",
+              LT:"Jūs sėkmingai užsiregistravote. Jūs priims",
               EN:"You are registered for a visit with"
             },
             information: {

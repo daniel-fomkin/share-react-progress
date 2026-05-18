@@ -116,6 +116,7 @@ function Registration({lang, getDataFunction }){
       //Mokytojui
       emailjs.send(serviceID, templateID, data).then(
         //Jeigu viskas gerai suveikia sitas kodas
+        
         (response) =>{
           console.log("Email buvo sekmingai išsiustas",response.status,response.text);
          
@@ -129,19 +130,24 @@ function Registration({lang, getDataFunction }){
       );
 
       //Atejusiam zmogui
-        emailjs.send(serviceID, autoReplyID, autoReplyEmail).then(
-        //Jeigu viskas gerai suveikia sitas kodas
-        (response) =>{
-          console.log("Email buvo sekmingai išsiustas",response.status,response.text);
-        },
-        //Jeigu klaida sitas
-        (error) => {
-          console.log("KLAIDA!!!!!", error);
-          
-          showErrorAlert("KLAIDA!");
-          navigate("/form");
+        const autoReplyData = teacherData.find(el => el.name == data.addressee);
+        autoReplyData.userEmail = autoReplyEmail.email;
+        console.log(autoReplyData);
         
-        },
+      
+        emailjs.send(serviceID, autoReplyID, autoReplyData).then(
+          //Jeigu viskas gerai suveikia sitas kodas
+          (response) =>{
+            console.log("Email buvo sekmingai išsiustas",response.status,response.text);
+          },
+          //Jeigu klaida sitas
+          (error) => {
+            console.log("KLAIDA!!!!!", error);
+
+            showErrorAlert("KLAIDA!");
+            navigate("/form");
+          
+          },
       );
 
       goToDirections();
@@ -175,12 +181,12 @@ function Registration({lang, getDataFunction }){
         return;
       }
       getDataFunction(data);
-      // if(data.addressee == "Teacher1" || data.adresee == "Profesijos mokytoja (Biuro administratoriaus mokymo programa) Virginija Puodžiukienė"){
+      if(data.addressee == "Teacher1"){
         sendEmail(data);          
-      // }
-      // else{
-      //   goToDirections();
-      // }
+      }
+      else{
+        goToDirections();
+      }
     }
     
     
