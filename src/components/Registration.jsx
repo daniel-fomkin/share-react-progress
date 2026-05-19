@@ -181,12 +181,12 @@ function Registration({lang, getDataFunction }){
         return;
       }
       getDataFunction(data);
-      if(data.addressee == "Teacher1"){
+      // if(data.addressee == "Teacher1"){
         sendEmail(data);          
-      }
-      else{
-        goToDirections();
-      }
+      // }
+      // else{
+        // goToDirections();
+      // }
     }
     
     
