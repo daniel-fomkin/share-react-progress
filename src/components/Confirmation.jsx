@@ -38,7 +38,7 @@ function Confrimation({lang, data}){
               <img src={checkImg} alt="Confirmation" />
               <h1>{translate("confirmation", "confirm", lang)}</h1>
               <p>{translate("confirmation", "designatedTeacher", lang)} {data.addressee}.</p>
-              <p>{translate("confirmation", "information", lang)}</p>
+              <p>{translate("confirmation", "information", lang)}.</p>
               <img src={mailImg} alt="Mail Icon" />
               <button type="button" className="done-btn" onClick={goToWelcome}>{translate("confirmation", "finishButton", lang)}</button>
           </div>
