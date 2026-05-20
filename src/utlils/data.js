@@ -6,10 +6,10 @@ const teacherData = [
       {
         name: "Teacher1",
         email: "projekto-teacher1@outlook.com",
-        cabinet: "666",
-        floor: "-100",
-        direction: "Eikite koridoriumi iki laiptų kairėje → eikite žemyn iki pragaro → eikite tiesiai iki Mefistofelio → 666 kabinetas",
-        directionENG: "Go down the corridor to the stairs to your left → go down to hell → go straight to the Mefistofel → 666 room"
+        cabinet: "001",
+        floor: "2",
+        direction: "Eikite koridoriumi iki laiptų kairėje → pakilkite į antrą aukštą → eikite tiesiai koridoriumi → 001 kabinetas",
+        directionENG: "Go down the corridor to the stairs on the left → go up to the second floor → walk straight down the corridor → room 001"
       },
       {
       name: "Skyriaus vadovė Alina Vaitekūnienė",
